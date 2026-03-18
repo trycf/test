@@ -1,0 +1,34 @@
+
+<!---
+<bx:set postslug = url.slug ?: "">
+
+<bx:query name="getPost" datasource="blog">
+select title, posted, body from posts
+where slug = <bx:queryparam value="#postslug#">
+</bx:query>
+
+<bx:if getPost.recordCount is 0>
+	<bx:location url="/">
+</bx:if>
+--->
+
+<bx:script>
+postslug = url.slug ?: "";
+
+getPost = queryExecute("select title,posted,body from posts where slug=:slug", { slug: postslug }, { datasource:"blog"});
+
+if(getPost.recordCount == 0) location(url="/");
+</bx:script>
+
+<bx:component template="components/layout.bxm" title="#getPost.title#">
+
+<bx:output>
+<h2>#getPost.title#</h2>
+<p>
+	Posted #getPost.posted#
+</p>
+
+#paragraphFormat(getPost.body)#
+</bx:output>
+
+</bx:component>
