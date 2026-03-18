@@ -1,0 +1,25 @@
+
+
+<bx:component template="components/layout.bxm" title="My Awesome BoxLang Blog">
+
+<h2>Blog Posts</h2> 
+
+<bx:query name="getRecentPosts" datasource="blog">
+select title, posted, slug from posts
+order by posted desc
+limit 10
+</bx:query>
+
+<bx:loop query="getRecentPosts">
+	<p>
+		<bx:output>
+		<a href="post.bxm?slug=#slug#">#title#</a>
+		</bx:output>
+	</p>
+</bx:loop>
+<bx:output>
+#GetSystemSetting('CLAUDE_API_KEY',"Key not found :(")#<br/>
+#GetSystemSetting('SOME_KEY','not found, dude.')#
+</bx:output>
+<bx:dump var="#server.system.environment.toString()#">
+</bx:component>
