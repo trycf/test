@@ -1,6 +1,6 @@
 class {
 
-	this.name = "blog1";
+	this.name = "blog2";
 	// this.datasources = {
 	// 	blog = {
 	// 		driver:"mysql",
