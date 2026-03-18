@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "bx-cli": "7.0.7-alpha"
+
+  
+  },
+  "name": "bx-simple-blog",
+  "slug": "bx-simple-blog",
+  "version": "1.0.0"
+}
